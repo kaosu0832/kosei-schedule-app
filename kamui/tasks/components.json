@@ -1,0 +1,23 @@
+{
+  "task_name": "Common_Components",
+  "description": "アプリ全体で再利用される UI コンポーネントを統一設計で作成する。",
+  "input": {
+    "design_rules": "UI/UX 担当が定義した layout, spacing, color rules",
+    "existing_code": "app ディレクトリ内に分散している UI バラバラなスタイル"
+  },
+  "output": {
+    "components": [
+      "Button",
+      "Card",
+      "Input",
+      "Table",
+      "Badge",
+      "Layout"
+    ],
+    "rules": {
+      "color_system": "dark / accent-blue",
+      "spacing": "8px grid",
+      "radius": "8px"
+    }
+  }
+}
