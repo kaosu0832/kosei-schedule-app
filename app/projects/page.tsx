@@ -20,7 +20,6 @@ export default function ProjectsPage() {
   const [adding, setAdding] = useState(false);
 
   // 初回レンダリング時に Supabase から projects を読み込む
-  // useEffect(Reactの副作用フック。コンポーネント表示後に1回だけデータ取得処理を走らせるために使う)
   useEffect(() => {
     const fetchProjects = async () => {
       setLoading(true);
@@ -42,7 +41,6 @@ export default function ProjectsPage() {
   }, []);
 
   // ダミープロジェクトを1件追加するボタン
-  // 接続テスト用。これが成功すればSupabaseとの書き込みもOKと確認できる
   const handleAddDummyProject = async () => {
     try {
       setAdding(true);
@@ -64,7 +62,6 @@ export default function ProjectsPage() {
         return;
       }
 
-      // 画面上の一覧も即更新
       setProjects((prev) => [...prev, data as Project]);
     } finally {
       setAdding(false);
@@ -72,9 +69,23 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div style={{ padding: "32px", fontFamily: "sans-serif", color: "#f5f5f5", background: "#050505", minHeight: "100vh" }}>
-      {/* 上部ヘッダー */}
-      <header style={{ marginBottom: "24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    <div
+      style={{
+        padding: "32px",
+        fontFamily: "sans-serif",
+        color: "#f5f5f5",
+        background: "#050505",
+        minHeight: "100vh"
+      }}
+    >
+      <header
+        style={{
+          marginBottom: "24px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}
+      >
         <div>
           <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>プロジェクト一覧</h1>
           <p style={{ fontSize: "14px", color: "#999" }}>
@@ -95,7 +106,6 @@ export default function ProjectsPage() {
         </nav>
       </header>
 
-      {/* 接続テスト用のダミー追加ボタン */}
       <div style={{ marginBottom: "20px", display: "flex", gap: "12px" }}>
         <button
           onClick={handleAddDummyProject}
@@ -114,7 +124,6 @@ export default function ProjectsPage() {
         </button>
       </div>
 
-      {/* 読み込み・エラー表示 */}
       {loading && <p>読み込み中です...</p>}
       {error && (
         <p style={{ color: "#ff6b6b", marginBottom: "16px" }}>
@@ -122,7 +131,6 @@ export default function ProjectsPage() {
         </p>
       )}
 
-      {/* プロジェクト一覧テーブル */}
       {!loading && projects.length === 0 && !error && (
         <p>まだプロジェクトが登録されていません。</p>
       )}
@@ -162,7 +170,7 @@ export default function ProjectsPage() {
   );
 }
 
-const navButtonStyle: React.CSSProperties = {
+const navButtonStyle = {
   padding: "8px 14px",
   background: "#111",
   color: "#f5f5f5",
@@ -172,7 +180,7 @@ const navButtonStyle: React.CSSProperties = {
   fontSize: "13px"
 };
 
-const thStyle: React.CSSProperties = {
+const thStyle = {
   padding: "10px 12px",
   textAlign: "left",
   fontSize: "13px",
@@ -180,7 +188,7 @@ const thStyle: React.CSSProperties = {
   borderBottom: "1px solid #222"
 };
 
-const tdStyle: React.CSSProperties = {
+const tdStyle = {
   padding: "10px 12px",
   fontSize: "13px",
   color: "#f5f5f5"
