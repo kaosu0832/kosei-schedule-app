@@ -1,76 +1,89 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Home() {
-  const [projectCount, setProjectCount] = useState(0);
-  const [completedCount, setCompletedCount] = useState(0);
-
-  // 本番では Supabase から件数を取得する
-  // 今はダミーデータ
-  useEffect(() => {
-    setProjectCount(5); // 進行中プロジェクト数（仮）
-    setCompletedCount(12); // 完了プロジェクト数（仮）
-  }, []);
-
   return (
-    <div style={{ padding: "32px", fontFamily: "sans-serif" }}>
-      <h1 style={{ fontSize: "28px", fontWeight: "bold", marginBottom: "24px" }}>
-        工期管理ダッシュボード
+    <div
+      style={{
+        background: "#0f0f0f",
+        minHeight: "100vh",
+        color: "#f5f5f5",
+        padding: "40px",
+      }}
+    >
+      <h1 style={{ fontSize: "28px", marginBottom: "30px" }}>
+        工期管理アプリ – ホーム
       </h1>
 
-      <div style={{ display: "flex", gap: "20px", marginBottom: "40px" }}>
-        <div
+      <section
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+          maxWidth: "400px",
+        }}
+      >
+        <Link
+          href="/projects"
           style={{
-            flex: 1,
-            padding: "20px",
-            background: "#1e1e1e",
-            color: "white",
-            borderRadius: "12px"
+            padding: "14px 20px",
+            background: "#181818",
+            border: "1px solid #333",
+            borderRadius: "8px",
+            color: "#f5f5f5",
+            textDecoration: "none",
+            fontSize: "15px",
           }}
         >
-          <h2 style={{ fontSize: "18px" }}>進行中プロジェクト</h2>
-          <p style={{ fontSize: "32px", marginTop: "8px" }}>{projectCount}</p>
-        </div>
+          進行中プロジェクト一覧を見る
+        </Link>
 
-        <div
+        <Link
+          href="/completed"
           style={{
-            flex: 1,
-            padding: "20px",
-            background: "#004488",
-            color: "white",
-            borderRadius: "12px"
+            padding: "14px 20px",
+            background: "#181818",
+            border: "1px solid #333",
+            borderRadius: "8px",
+            color: "#f5f5f5",
+            textDecoration: "none",
+            fontSize: "15px",
           }}
         >
-          <h2 style={{ fontSize: "18px" }}>完了プロジェクト</h2>
-          <p style={{ fontSize: "32px", marginTop: "8px" }}>{completedCount}</p>
-        </div>
-      </div>
-
-      <div style={{ display: "flex", gap: "20px" }}>
-        <Link href="/projects" style={buttonStyle}>
-          プロジェクト一覧へ
+          完了したプロジェクト一覧を見る
         </Link>
 
-        <Link href="/completed" style={buttonStyle}>
-          完了プロジェクト一覧へ
+        <Link
+          href="/projects/new"
+          style={{
+            padding: "14px 20px",
+            background: "#181818",
+            border: "1px solid #333",
+            borderRadius: "8px",
+            color: "#f5f5f5",
+            textDecoration: "none",
+            fontSize: "15px",
+          }}
+        >
+          新規プロジェクトを作成する（未実装）
         </Link>
 
-        <Link href="/staff" style={buttonStyle}>
-          人員カレンダーへ
+        <Link
+          href="/gantt"
+          style={{
+            padding: "14px 20px",
+            background: "#181818",
+            border: "1px solid #333",
+            borderRadius: "8px",
+            color: "#f5f5f5",
+            textDecoration: "none",
+            fontSize: "15px",
+          }}
+        >
+          ガントチャートを見る（未実装）
         </Link>
-      </div>
+      </section>
     </div>
   );
 }
-
-const buttonStyle = {
-  padding: "16px 24px",
-  background: "#333",
-  color: "white",
-  borderRadius: "10px",
-  textDecoration: "none",
-  fontSize: "16px",
-  border: "1px solid #666"
-};
