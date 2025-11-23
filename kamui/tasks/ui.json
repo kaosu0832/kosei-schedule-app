@@ -1,0 +1,26 @@
+{
+  "task_name": "UI_UX_Refactor",
+  "description": "アプリ全体の UI/UX をダークテーマの工場×近未来デザインで統一し、コンポーネント化して再設計する。",
+  "input": {
+    "codebase": "app ディレクトリ以下の全 React コンポーネント",
+    "design_direction": {
+      "theme": "dark",
+      "style": "factory × near-future"
+    }
+  },
+  "output": {
+    "updated_pages": "全ページのデザインリファイン",
+    "components": [
+      "Button",
+      "Card",
+      "Input",
+      "Table",
+      "Layout"
+    ],
+    "improvements": [
+      "色・余白・フォントの一貫性",
+      "レスポンシブ対応",
+      "アクセシビリティ改善"
+    ]
+  }
+}
