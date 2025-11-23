@@ -1,0 +1,32 @@
+{
+  "task_name": "Database_Supabase_Design",
+  "description": "Supabase における project / task / user テーブルを最適化し、必要な API と権限設定を整える。",
+  "input": {
+    "current_tables": ["projects"],
+    "future_requirements": [
+      "機械ごとの人工管理",
+      "タスクの進行ステータス管理",
+      "ユーザー管理",
+      "プロジェクト進行率算出"
+    ]
+  },
+  "output": {
+    "tables": {
+      "projects": "id, name, start_date, due_date, status",
+      "tasks": "id, project_id, name, man_hour, status",
+      "users": "id, name, role"
+    },
+    "security": {
+      "rls": true,
+      "policies": ["read/write by authenticated users"]
+    },
+    "api": [
+      "create_project",
+      "update_project",
+      "delete_project",
+      "create_task",
+      "update_task",
+      "delete_task"
+    ]
+  }
+}
