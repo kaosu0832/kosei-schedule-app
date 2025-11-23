@@ -40,7 +40,7 @@ export default function Home() {
         工期管理アプリ – ホーム
       </h1>
 
-      {/* カウント表示（シンプル） */}
+      {/* カウント表示 */}
       <div
         style={{
           display: "flex",
@@ -76,4 +76,84 @@ export default function Home() {
             textAlign: "center",
           }}
         >
-          <div style={{ fontSize: "14px", margin
+          <div style={{ fontSize: "14px", marginBottom: "8px" }}>
+            完了プロジェクト
+          </div>
+          <div style={{ fontSize: "26px", fontWeight: "bold", color: "#0f0" }}>
+            {completed}
+          </div>
+        </div>
+      </div>
+
+      {/* リンク一覧 */}
+      <section
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+          maxWidth: "400px",
+        }}
+      >
+        <Link
+          href="/projects"
+          style={{
+            padding: "14px 20px",
+            background: "#181818",
+            border: "1px solid #333",
+            borderRadius: "8px",
+            color: "#f5f5f5",
+            textDecoration: "none",
+            fontSize: "15px",
+          }}
+        >
+          進行中プロジェクト一覧を見る
+        </Link>
+
+        <Link
+          href="/completed"
+          style={{
+            padding: "14px 20px",
+            background: "#181818",
+            border: "1px solid #333",
+            borderRadius: "8px",
+            color: "#f5f5f5",
+            textDecoration: "none",
+            fontSize: "15px",
+          }}
+        >
+          完了したプロジェクト一覧を見る
+        </Link>
+
+        <Link
+          href="/projects/new"
+          style={{
+            padding: "14px 20px",
+            background: "#181818",
+            border: "1px solid #333",
+            borderRadius: "8px",
+            color: "#f5f5f5",
+            textDecoration: "none",
+            fontSize: "15px",
+          }}
+        >
+          新規プロジェクトを作成する
+        </Link>
+
+        <Link
+          href="/gantt"
+          style={{
+            padding: "14px 20px",
+            background: "#181818",
+            border: "1px solid #333",
+            borderRadius: "8px",
+            color: "#f5f5f5",
+            textDecoration: "none",
+            fontSize: "15px",
+          }}
+        >
+          ガントチャートを見る（未実装）
+        </Link>
+      </section>
+    </div>
+  );
+}
