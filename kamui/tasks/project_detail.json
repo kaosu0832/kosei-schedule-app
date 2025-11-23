@@ -1,0 +1,22 @@
+{
+  "task_name": "Project_Detail_Page",
+  "description": "プロジェクトの詳細画面を完成させ、Supabase と連動する読み書き機能を実装する。",
+  "input": {
+    "page": "/app/projects/[id]/page.tsx",
+    "requirements": [
+      "タスク一覧の表示",
+      "ステータス変更ボタン",
+      "進行率の自動計算",
+      "タスク追加フォーム"
+    ]
+  },
+  "output": {
+    "features": [
+      "プロジェクトデータの読み込み",
+      "状態更新（Supabase 反映）",
+      "タスク追加",
+      "進行率の円グラフ表示"
+    ],
+    "ui": "統一デザインでの詳細画面"
+  }
+}
