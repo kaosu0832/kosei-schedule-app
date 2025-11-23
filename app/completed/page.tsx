@@ -25,11 +25,11 @@ export default function CompletedProjectsPage() {
     const fetchCompleted = async () => {
       setLoading(true);
 
-      const { data, error } = await supabase
-        .from("projects") // projectsテーブル(工期管理の案件一覧テーブル。アプリ全体のベースとなる)
-        .select("*")
-        .eq("status", "完了") // 完了のみ絞り込み(eq: 指定したカラムが特定の値と等しい行だけを抽出するSupabaseのフィルタ関数)
-        .order("due_date", { ascending: true });
+     const { data, error } = await supabase
+  .from("projects")
+  .select("*")
+  .ilike("status", "%完了%") // status に「完了」を含むものを拾う（前後のスペースや「完了済み」にも対応）
+  .order("due_date", { ascending: true });
 
       if (error) {
         console.error("Error fetching completed projects:", error);
