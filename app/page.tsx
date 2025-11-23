@@ -10,8 +10,8 @@ export default function Home() {
   // 本番では Supabase から件数を取得する
   // 今はダミーデータ
   useEffect(() => {
-    setProjectCount(5);      // 進行中プロジェクト数（仮）
-    setCompletedCount(12);   // 完了プロジェクト数（仮）
+    setProjectCount(5); // 進行中プロジェクト数（仮）
+    setCompletedCount(12); // 完了プロジェクト数（仮）
   }, []);
 
   return (
@@ -21,24 +21,28 @@ export default function Home() {
       </h1>
 
       <div style={{ display: "flex", gap: "20px", marginBottom: "40px" }}>
-        <div style={{
-          flex: 1,
-          padding: "20px",
-          background: "#1e1e1e",
-          color: "white",
-          borderRadius: "12px"
-        }}>
+        <div
+          style={{
+            flex: 1,
+            padding: "20px",
+            background: "#1e1e1e",
+            color: "white",
+            borderRadius: "12px"
+          }}
+        >
           <h2 style={{ fontSize: "18px" }}>進行中プロジェクト</h2>
           <p style={{ fontSize: "32px", marginTop: "8px" }}>{projectCount}</p>
         </div>
 
-        <div style={{
-          flex: 1,
-          padding: "20px",
-          background: "#004488",
-          color: "white",
-          borderRadius: "12px"
-        }}>
+        <div
+          style={{
+            flex: 1,
+            padding: "20px",
+            background: "#004488",
+            color: "white",
+            borderRadius: "12px"
+          }}
+        >
           <h2 style={{ fontSize: "18px" }}>完了プロジェクト</h2>
           <p style={{ fontSize: "32px", marginTop: "8px" }}>{completedCount}</p>
         </div>
@@ -61,7 +65,6 @@ export default function Home() {
   );
 }
 
-// ボタンの共通スタイル
 const buttonStyle = {
   padding: "16px 24px",
   background: "#333",
