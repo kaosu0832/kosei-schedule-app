@@ -1,0 +1,17 @@
+{
+  "task_name": "Gantt_Chart",
+  "description": "プロジェクト一覧をガントチャートとして視覚化し、横スクロール式の日単位スケールで描画する。",
+  "input": {
+    "api": "projects 一覧の start_date / due_date",
+    "style": "dark + industrial",
+    "chart_library": "Plotly or visx"
+  },
+  "output": {
+    "chart_page": "/app/gantt/page.tsx",
+    "features": [
+      "横軸は日付",
+      "プロジェクトバーの描画",
+      "クリックで詳細ページへ遷移"
+    ]
+  }
+}
