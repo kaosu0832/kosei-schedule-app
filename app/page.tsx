@@ -1,8 +1,32 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabaseClient";
 
 export default function Home() {
+  const [inProgress, setInProgress] = useState<number>(0);
+  const [completed, setCompleted] = useState<number>(0);
+
+  // データ取得
+  useEffect(() => {
+    const fetchCounts = async () => {
+      const { data, error } = await supabase
+        .from("projects")
+        .select("status");
+
+      if (!error && data) {
+        const inProg = data.filter((p) => p.status === "進行中").length;
+        const done = data.filter((p) => p.status === "完了").length;
+
+        setInProgress(inProg);
+        setCompleted(done);
+      }
+    };
+
+    fetchCounts();
+  }, []);
+
   return (
     <div
       style={{
@@ -16,74 +40,40 @@ export default function Home() {
         工期管理アプリ – ホーム
       </h1>
 
-      <section
+      {/* カウント表示（シンプル） */}
+      <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          gap: "16px",
-          maxWidth: "400px",
+          gap: "20px",
+          marginBottom: "30px",
         }}
       >
-        <Link
-          href="/projects"
+        <div
           style={{
-            padding: "14px 20px",
             background: "#181818",
-            border: "1px solid #333",
+            padding: "20px",
             borderRadius: "8px",
-            color: "#f5f5f5",
-            textDecoration: "none",
-            fontSize: "15px",
+            border: "1px solid #333",
+            minWidth: "150px",
+            textAlign: "center",
           }}
         >
-          進行中プロジェクト一覧を見る
-        </Link>
+          <div style={{ fontSize: "14px", marginBottom: "8px" }}>
+            進行中プロジェクト
+          </div>
+          <div style={{ fontSize: "26px", fontWeight: "bold" }}>
+            {inProgress}
+          </div>
+        </div>
 
-        <Link
-          href="/completed"
+        <div
           style={{
-            padding: "14px 20px",
             background: "#181818",
-            border: "1px solid #333",
+            padding: "20px",
             borderRadius: "8px",
-            color: "#f5f5f5",
-            textDecoration: "none",
-            fontSize: "15px",
+            border: "1px solid #333",
+            minWidth: "150px",
+            textAlign: "center",
           }}
         >
-          完了したプロジェクト一覧を見る
-        </Link>
-
-        <Link
-          href="/projects/new"
-          style={{
-            padding: "14px 20px",
-            background: "#181818",
-            border: "1px solid #333",
-            borderRadius: "8px",
-            color: "#f5f5f5",
-            textDecoration: "none",
-            fontSize: "15px",
-          }}
-        >
-          新規プロジェクトを作成する（未実装）
-        </Link>
-
-        <Link
-          href="/gantt"
-          style={{
-            padding: "14px 20px",
-            background: "#181818",
-            border: "1px solid #333",
-            borderRadius: "8px",
-            color: "#f5f5f5",
-            textDecoration: "none",
-            fontSize: "15px",
-          }}
-        >
-          ガントチャートを見る（未実装）
-        </Link>
-      </section>
-    </div>
-  );
-}
+          <div style={{ fontSize: "14px", margin
