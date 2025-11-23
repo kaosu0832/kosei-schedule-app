@@ -1,21 +1,5 @@
-/* Tailwindは後で使うときに設定し直す。
- * 今はビルドエラーを避けるために空のスタイルにしておく。
- */
-
 body {
   margin: 0;
-}
-
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+  padding: 0;
+  box-sizing: border-box;
 }
